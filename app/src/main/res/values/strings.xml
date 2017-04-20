@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ClothingRec</string>
+    <string name="localBtn_name">本地搭配</string>
+    <string name="onlineBtn_name">联网搭配</string>
+</resources>

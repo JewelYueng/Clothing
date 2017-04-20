@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="搭配上装"
+        android:id="@+id/shirtBtn"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="50dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="搭配下装"
+        android:id="@+id/pantsBtn"
+        android:background="#ffffff"
+        android:textColor="#353535"
+        android:textStyle="bold"
+        android:textSize="50dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>
