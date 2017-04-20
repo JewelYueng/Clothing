@@ -5,7 +5,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -17,22 +18,22 @@
                     style="@style/TagNameStyle"
                     android:text="领子"/>
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/LingziYou"
+                        android:id="@+id/collar01"
                         style="@style/TagStyle"
                         android:text="  有  "/>
                     <TextView
-                        android:id="@+id/LingziWu"
+                        android:id="@+id/collar02"
                         style="@style/TagStyle"
                         android:text="  无  "/>
                 </LinearLayout>
             </LinearLayout>
 
+            <!--袖长-->
             <LinearLayout
                 style="@style/TagBlockStyle">
                 <TextView
@@ -43,19 +44,22 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:id="@+id/sleeve01"
                         style="@style/TagStyle"
                         android:text="无袖"/>
                     <TextView
+                        android:id="@+id/sleeve02"
                         style="@style/TagStyle"
                         android:text="短袖"/>
                     <TextView
+                        android:id="@+id/sleeve03"
                         style="@style/TagStyle"
                         android:text="中袖"/>
                     <TextView
+                        android:id="@+id/sleeve04"
                         style="@style/TagStyle"
                         android:text="长袖"/>
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -63,19 +67,24 @@
                 <TextView
                     style="@style/TagNameStyle"
                     android:text="主色（0-255）"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="R:"
-                        android:textSize="@dimen/textSize_16"
-                        android:textColor="@color/colorBlack"/>
-                </LinearLayout>
+                <TextView
+                    style="@style/TagStyle"
+                    android:id="@+id/MajorColor"
+                    android:text="选择主色：0,0,0"/>
             </LinearLayout>
 
+            <LinearLayout
+                style="@style/TagBlockStyle">
+                <TextView
+                    style="@style/TagNameStyle"
+                    android:text="辅色(0-255)"/>
+                <TextView
+                    style="@style/TagStyle"
+                    android:id="@+id/SecondaryColor"
+                    android:text="选择辅色：0,0,0"/>
+            </LinearLayout>
+
+            <!--松紧度-->
             <LinearLayout
                 style="@style/TagBlockStyle">
                 <TextView
@@ -86,12 +95,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:id="@+id/tight01"
                         style="@style/TagStyle"
                         android:text="宽松"/>
                     <TextView
+                        android:id="@+id/tight02"
                         style="@style/TagStyle"
                         android:text="正常"/>
                     <TextView
+                        android:id="@+id/tight03"
                         style="@style/TagStyle"
                         android:text=" 紧 "/>
                 </LinearLayout>
@@ -108,23 +120,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:id="@+id/hem01"
                         style="@style/TagStyle"
                         android:text="较短"/>
                     <TextView
+                        android:id="@+id/hem02"
                         style="@style/TagStyle"
                         android:text="稍短"/>
                     <TextView
+                        android:id="@+id/hem03"
                         style="@style/TagStyle"
                         android:text="正常"/>
                     <TextView
+                        android:id="@+id/hem04"
                         style="@style/TagStyle"
                         android:text="稍长"/>
                     <TextView
+                        android:id="@+id/hem05"
                         style="@style/TagStyle"
                         android:text="较长"/>
                 </LinearLayout>
             </LinearLayout>
-
 
             <!--面料-->
             <LinearLayout
@@ -137,18 +153,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:id="@+id/fabric01"
                         style="@style/TagStyle"
                         android:text="棉麻"/>
                     <TextView
+                        android:id="@+id/fabric02"
                         style="@style/TagStyle"
                         android:text="化纤"/>
                     <TextView
+                        android:id="@+id/fabric03"
                         style="@style/TagStyle"
-                        android:text="皮"/>
+                        android:text=" 皮 "/>
                     <TextView
+                        android:id="@+id/fabric04"
                         style="@style/TagStyle"
-                        android:text="毛"/>
+                        android:text=" 毛 "/>
                     <TextView
+                        android:id="@+id/fabric05"
                         style="@style/TagStyle"
                         android:text="牛仔"/>
                 </LinearLayout>
@@ -165,20 +186,46 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:id="@+id/type01"
                         style="@style/TagStyle"
                         android:text="印花"/>
                     <TextView
+                        android:id="@+id/type02"
                         style="@style/TagStyle"
                         android:text="条纹"/>
                     <TextView
+                        android:id="@+id/type03"
                         style="@style/TagStyle"
                         android:text="格子"/>
                     <TextView
+                        android:id="@+id/type04"
                         style="@style/TagStyle"
                         android:text="纯色"/>
                     <TextView
+                        android:id="@+id/type05"
                         style="@style/TagStyle"
                         android:text="文字"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/TagStyle"
+                        android:text="碎花"
+                        android:id="@+id/type06"/>
+                    <TextView
+                        style="@style/TagStyle"
+                        android:text="波点"
+                        android:id="@+id/type07"/>
+                    <TextView
+                        style="@style/TagStyle"
+                        android:text="迷彩"
+                        android:id="@+id/type08"/>
+                    <TextView
+                        style="@style/TagStyle"
+                        android:text="拼接"
+                        android:id="@+id/type09"/>
                 </LinearLayout>
             </LinearLayout>
 

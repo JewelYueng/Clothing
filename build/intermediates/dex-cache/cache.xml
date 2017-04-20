@@ -3,57 +3,120 @@
 
     <item
         is-multidex="false"
-        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.2.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_873d81934a30a0f08688ffb773e3e7f3926aedee.jar" />
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.2.0_a057b1405adbed0d3590477c3b51ab119a748db6.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jar="C:\Users\Aria\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.12.0\3742beff8024d0a0073d284b7c5e4cbf73d99b25\okio-1.12.0.jar"
         jumboMode="false"
         optimize="true"
-        revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_0fc94f3858321a6aa84327b411d29759c9c470da.jar" />
+        revision="25.0.2"
+        sha1="3742beff8024d0a0073d284b7c5e4cbf73d99b25">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\okio-1.12.0_c4ab0dd3081b591272f045bc005f04c0835ab8fe.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.2.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="23.0.3"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.4.0_1714f6bc7d3838e0e3a7ee6c7be94495374c0b1d.jar" />
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.2.0_d50180411c1d2e91db07ae246e9c245689a84c4c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="D:\AndroidSdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.2.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_9bf3ebe30ca18cde95765a97af8d77a6544fca79.jar" />
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.2.0_be33e70aa7c3bc7c1b8b394e702d3a4c948fe301.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jar="C:\Users\Aria\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.7.0\6edbebdd8868708db718d15c09c4b28037fd487e\okhttp-3.7.0.jar"
         jumboMode="false"
         optimize="true"
-        revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.4.0_b02df04b1ac97f756e9dca50625963f03eaa8c8f.jar" />
+        revision="25.0.2"
+        sha1="6edbebdd8868708db718d15c09c4b28037fd487e">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\okhttp-3.7.0_956edb61dd6ba719e91317df800eb0b5e6326a8d.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.2.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_047c50d681335ff6f9f8c3575d4852430410824b.jar" />
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.2.0_8e34d99c850a2a60b5aad3f0f8114062f7720bcc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.2.0_c243c6339185a6f580f0588cb60412748a7efd17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\AndroidSdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\support-annotations-25.2.0_c37d6e3a966486589eb8b0ff258555c7689c9aee.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.2.0_c359502e1d91a48bbb1633da9ec356bc1c207b08.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.2.0_755b52cabae30f43b71c857d92e509cdc956233d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.2.0_63ba9eab1a23ecb1904d00e5f268377e8a6290bd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.larswerkman\HoloColorPicker\1.5\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ffaf68fa06f0339acf8f44d7b8c21d5c0501692b">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.larswerkman-HoloColorPicker-1.5_6bdfd8f66d8c40eaa1a8c647a6655378dbea0cd0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.2.0_00e7aa8d4d6945ea4ef52358fb18a508ef604ccd.jar" />
     </item>
 
 </items>
