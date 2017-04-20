@@ -26,6 +26,10 @@
 
         </activity>
         <activity android:name=".TagsForWhat">
+
+        </activity>
+
+        <activity android:name=".tagsview.TagsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,60 +2,58 @@
 <items version="2" >
 
     <item
-        jar="/Users/jewel/Clothing/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="05c087833754760b14eedc4d64313e398bf43e50">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_1cf30fa481472b6f5a0b565321e099bb0f81318a/classes.dex" />
-    </item>
-    <item
-        jar="/Users/jewel/Clothing/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
         revision="23.0.3"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_ad5778db6a80f87c6a98a06a0f9dcf218f01debe/classes.dex" />
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_873d81934a30a0f08688ffb773e3e7f3926aedee.jar" />
     </item>
     <item
-        jar="/Users/jewel/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_da66845ddb420a118294533d8d42b483bdbe9e5e/classes.dex" />
-    </item>
-    <item
-        jar="/Users/jewel/Clothing/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_82c6833db017012a6420975c574b63cf6c16f1cb/classes.dex" />
-    </item>
-    <item
-        jar="/Users/jewel/Clothing/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_ca46c874a830afe705aa68884475dfd7d9b25627/classes.dex" />
-    </item>
-    <item
-        jar="/Users/jewel/Clothing/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
         revision="23.0.3"
         sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_4df1473b1d3b3c2d46744517bc2475cd52af9ed3/classes.dex" />
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_0fc94f3858321a6aa84327b411d29759c9c470da.jar" />
     </item>
     <item
-        jar="/Users/jewel/Clothing/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
         revision="23.0.3"
-        sha1="7248362cd018788d20548529dd36067260980f6f">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_e9659e9c8b6495d88b216e2e2ca991333fc073cc/classes.dex" />
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.4.0_1714f6bc7d3838e0e3a7ee6c7be94495374c0b1d.jar" />
     </item>
     <item
-        jar="/Users/jewel/Clothing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="D:\AndroidSdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_9bf3ebe30ca18cde95765a97af8d77a6544fca79.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/Users/jewel/Clothing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_85727b2be93d319344eaa8218ece1e5bcb396283/classes.dex" />
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.4.0_b02df04b1ac97f756e9dca50625963f03eaa8c8f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="E:\Projects\AndroidProjects\tmp\Clothing\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_047c50d681335ff6f9f8c3575d4852430410824b.jar" />
     </item>
 
 </items>
