@@ -181,7 +181,15 @@
                         android:text="文字"/>
                 </LinearLayout>
             </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnOk"
+                android:gravity="center"
+                android:text="确定"/>
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>
