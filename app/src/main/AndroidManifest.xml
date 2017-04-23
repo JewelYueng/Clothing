@@ -22,19 +22,18 @@
         <activity android:name=".SelectTagsActivity">
 
         </activity>
-        <activity android:name=".TagsForPants">
+        <activity android:name=".tagsview.TagsForPantsActivity">
 
         </activity>
         <activity android:name=".TagsForWhat">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity android:name=".tagsview.TagsActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

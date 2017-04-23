@@ -16,7 +16,8 @@
     <com.larswerkman.holocolorpicker.ColorPicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/colorPicker"/>
+        android:id="@+id/colorPicker"
+        android:layout_gravity="center_horizontal"/>
 
     <com.larswerkman.holocolorpicker.SVBar
         android:layout_width="match_parent"

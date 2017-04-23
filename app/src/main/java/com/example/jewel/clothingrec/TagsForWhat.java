@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.jewel.clothingrec.tagsview.TagsActivity;
+import com.example.jewel.clothingrec.tagsview.TagsForPantsActivity;
+
 /**
  * Created by jewel on 2016/10/25.
  */
@@ -21,14 +24,14 @@ public class TagsForWhat extends Activity {
         pantsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(TagsForWhat.this,TagsForPants.class);
+                Intent intent =new Intent(TagsForWhat.this,TagsForPantsActivity.class);
                 startActivity(intent);
             }
         });
         shirtBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TagsForWhat.this,SelectTagsActivity.class);
+                Intent intent = new Intent(TagsForWhat.this,TagsActivity.class);
                 startActivity(intent);
             }
         });

@@ -65,7 +65,7 @@ public class TagsActivity extends Activity{
 
     ProgressDialog progressDialog;
 
-    private String baseUrl = "http://119.29.191.103:8080/match2.0/center?type=up&feature=";
+    private String baseUrl = "http://119.29.191.103:8080/match2.0/center.action?type=up&feature=";
     private String url;
     List<HashMap<String, String>> lists;
 
@@ -385,6 +385,7 @@ public class TagsActivity extends Activity{
                     Log.d("MainActivity","result:"+result);
                     try {
                         JSONArray array = new JSONArray(result);
+                        Log.d("MainActivity","result:"+array);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
