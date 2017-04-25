@@ -3,6 +3,8 @@ package com.example.jewel.clothingrec.tagsview;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Process;
@@ -14,7 +16,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jewel.clothingrec.JSONManager;
 import com.example.jewel.clothingrec.R;
+import com.example.jewel.clothingrec.ShowListActivity;
 import com.example.jewel.clothingrec.global.Networks;
 import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.OpacityBar;
@@ -24,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -293,11 +298,32 @@ public class TagsForPantsActivity extends Activity {
 
                 if (response.code() == 200){
                     progressDialog.cancel();
-                    String result = response.body().toString();
-                    Log.d("MainActivity","result:" + result);
+                    String result = response.body().string();
+                    JSONManager jsonManager = new JSONManager();
+                    Log.d("MainActivity", "result:" + result);
                     try {
-                        JSONArray array = new JSONArray(result);
-                        Log.d("MainActivity","result:"+array);
+                        lists = jsonManager.Analysis(result);
+                        Log.d("MainActivity", "lists:" + lists.size());
+                        if (lists.size() == 0) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(TagsForPantsActivity.this);
+                            builder.setTitle("温馨提示");
+                            builder.setMessage("没有找到合适的搭配，请重新选择标签");
+                            builder.setPositiveButton("返回", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    finish();
+                                }
+                            });
+                            builder.show();
+
+                        }else{
+
+                            Intent intent =new Intent(TagsForPantsActivity.this,ShowListActivity.class);
+                            intent.putExtra("cases",(Serializable)lists);
+                            System.out.println("Tags is "+ lists.size());
+                            startActivity(intent);
+                            finish();
+                        }
                     }catch(JSONException e){
                         e.printStackTrace();
                     }

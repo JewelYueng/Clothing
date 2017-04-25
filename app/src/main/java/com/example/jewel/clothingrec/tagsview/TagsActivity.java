@@ -3,6 +3,8 @@ package com.example.jewel.clothingrec.tagsview;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,7 +16,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jewel.clothingrec.JSONManager;
 import com.example.jewel.clothingrec.R;
+import com.example.jewel.clothingrec.ShowListActivity;
 import com.example.jewel.clothingrec.global.Networks;
 import com.larswerkman.holocolorpicker.ColorPicker;
 import com.larswerkman.holocolorpicker.OpacityBar;
@@ -24,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,19 +40,19 @@ import okhttp3.Response;
  * Created by Aria on 2017/4/20.
  */
 
-public class TagsActivity extends Activity{
+public class TagsActivity extends Activity {
 
-    TextView []collar;
+    TextView[] collar;
     int collarFlag = -1;
-    TextView []sleeve;
+    TextView[] sleeve;
     int sleeveFlag = -1;
-    TextView []tight;
+    TextView[] tight;
     int tightFlag = -1;
-    TextView []hem;
+    TextView[] hem;
     int hemFlag = -1;
-    TextView []farbric;
+    TextView[] farbric;
     int farbricFlag = -1;
-    TextView []type;
+    TextView[] type;
     int typeFlag = -1;
 
     Button btnOk;
@@ -83,7 +88,7 @@ public class TagsActivity extends Activity{
         initListener();
     }
 
-    private void initData(){
+    private void initData() {
         collar = new TextView[2];
         collar[0] = (TextView) findViewById(R.id.collar01);
         collar[1] = (TextView) findViewById(R.id.collar02);
@@ -132,48 +137,47 @@ public class TagsActivity extends Activity{
         dialogBuilder = new AlertDialog.Builder(this);
     }
 
-    private void initView(){
-        for (int i=0;i<collar.length;i++){
-            collar[i].setPadding(30,15,30,15);
+    private void initView() {
+        for (int i = 0; i < collar.length; i++) {
+            collar[i].setPadding(30, 15, 30, 15);
         }
-        for (int i=0;i<sleeve.length;i++){
-            sleeve[i].setPadding(30,15,30,15);
+        for (int i = 0; i < sleeve.length; i++) {
+            sleeve[i].setPadding(30, 15, 30, 15);
         }
-        for (int i=0;i<tight.length;i++){
-            tight[i].setPadding(30,15,30,15);
+        for (int i = 0; i < tight.length; i++) {
+            tight[i].setPadding(30, 15, 30, 15);
         }
-        for (int i=0;i<hem.length;i++){
-            hem[i].setPadding(30,15,30,15);
+        for (int i = 0; i < hem.length; i++) {
+            hem[i].setPadding(30, 15, 30, 15);
         }
-        for (int i=0;i<farbric.length;i++){
-            farbric[i].setPadding(30,15,30,15);
+        for (int i = 0; i < farbric.length; i++) {
+            farbric[i].setPadding(30, 15, 30, 15);
         }
-        for (int i=0;i<type.length;i++){
-            type[i].setPadding(30,15,30,15);
+        for (int i = 0; i < type.length; i++) {
+            type[i].setPadding(30, 15, 30, 15);
         }
 
-        majorColor.setPadding(30,15,30,15);
-        secondaryColor.setPadding(30,15,30,15);
+        majorColor.setPadding(30, 15, 30, 15);
+        secondaryColor.setPadding(30, 15, 30, 15);
     }
 
-    private void initListener(){
+    private void initListener() {
 
         //领子
-        for (int i=0;i<collar.length;i++){
+        for (int i = 0; i < collar.length; i++) {
             final int pos = i;
             collar[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (int j = 0;j<collar.length;j++){
-                        if (j == pos){
+                    for (int j = 0; j < collar.length; j++) {
+                        if (j == pos) {
                             collar[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
                             collar[j].setTextColor(Color.WHITE);
-                            collar[j].setPadding(30,15,30,15);
+                            collar[j].setPadding(30, 15, 30, 15);
                             collarFlag = j;
-                        }
-                        else {
+                        } else {
                             collar[j].setBackgroundResource(R.drawable.tag_frame_unselected);
-                            collar[j].setPadding(30,15,30,15);
+                            collar[j].setPadding(30, 15, 30, 15);
                             collar[j].setTextColor(Color.BLACK);
                         }
                     }
@@ -183,21 +187,20 @@ public class TagsActivity extends Activity{
         }
 
         //袖长
-        for (int i=0;i<sleeve.length;i++){
+        for (int i = 0; i < sleeve.length; i++) {
             final int pos = i;
             sleeve[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (int j = 0;j<sleeve.length;j++){
-                        if (j == pos){
+                    for (int j = 0; j < sleeve.length; j++) {
+                        if (j == pos) {
                             sleeve[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
                             sleeve[j].setTextColor(Color.WHITE);
-                            sleeve[j].setPadding(30,15,30,15);
+                            sleeve[j].setPadding(30, 15, 30, 15);
                             sleeveFlag = j;
-                        }
-                        else {
+                        } else {
                             sleeve[j].setBackgroundResource(R.drawable.tag_frame_unselected);
-                            sleeve[j].setPadding(30,15,30,15);
+                            sleeve[j].setPadding(30, 15, 30, 15);
                             sleeve[j].setTextColor(Color.BLACK);
                         }
                     }
@@ -207,21 +210,20 @@ public class TagsActivity extends Activity{
         }
 
         //下摆
-        for (int i=0;i<hem.length;i++){
+        for (int i = 0; i < hem.length; i++) {
             final int pos = i;
             hem[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (int j = 0;j<hem.length;j++){
-                        if (j == pos){
+                    for (int j = 0; j < hem.length; j++) {
+                        if (j == pos) {
                             hem[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
                             hem[j].setTextColor(Color.WHITE);
-                            hem[j].setPadding(30,15,30,15);
+                            hem[j].setPadding(30, 15, 30, 15);
                             hemFlag = j;
-                        }
-                        else {
+                        } else {
                             hem[j].setBackgroundResource(R.drawable.tag_frame_unselected);
-                            hem[j].setPadding(30,15,30,15);
+                            hem[j].setPadding(30, 15, 30, 15);
                             hem[j].setTextColor(Color.BLACK);
                         }
                     }
@@ -231,21 +233,20 @@ public class TagsActivity extends Activity{
         }
 
         //松紧度
-        for (int i=0;i<tight.length;i++){
+        for (int i = 0; i < tight.length; i++) {
             final int pos = i;
             tight[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (int j = 0;j<tight.length;j++){
-                        if (j == pos){
+                    for (int j = 0; j < tight.length; j++) {
+                        if (j == pos) {
                             tight[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
                             tight[j].setTextColor(Color.WHITE);
-                            tight[j].setPadding(30,15,30,15);
+                            tight[j].setPadding(30, 15, 30, 15);
                             tightFlag = j;
-                        }
-                        else {
+                        } else {
                             tight[j].setBackgroundResource(R.drawable.tag_frame_unselected);
-                            tight[j].setPadding(30,15,30,15);
+                            tight[j].setPadding(30, 15, 30, 15);
                             tight[j].setTextColor(Color.BLACK);
                         }
                     }
@@ -255,21 +256,20 @@ public class TagsActivity extends Activity{
         }
 
         //面料
-        for (int i=0;i<farbric.length;i++){
+        for (int i = 0; i < farbric.length; i++) {
             final int pos = i;
             farbric[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (int j = 0;j<farbric.length;j++){
-                        if (j == pos){
+                    for (int j = 0; j < farbric.length; j++) {
+                        if (j == pos) {
                             farbric[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
                             farbric[j].setTextColor(Color.WHITE);
-                            farbric[j].setPadding(30,15,30,15);
+                            farbric[j].setPadding(30, 15, 30, 15);
                             farbricFlag = j;
-                        }
-                        else {
+                        } else {
                             farbric[j].setBackgroundResource(R.drawable.tag_frame_unselected);
-                            farbric[j].setPadding(30,15,30,15);
+                            farbric[j].setPadding(30, 15, 30, 15);
                             farbric[j].setTextColor(Color.BLACK);
                         }
                     }
@@ -279,21 +279,20 @@ public class TagsActivity extends Activity{
         }
 
         //类型
-        for (int i=0;i<type.length;i++){
+        for (int i = 0; i < type.length; i++) {
             final int pos = i;
             type[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    for (int j = 0;j<type.length;j++){
-                        if (j == pos){
+                    for (int j = 0; j < type.length; j++) {
+                        if (j == pos) {
                             type[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
                             type[j].setTextColor(Color.WHITE);
-                            type[j].setPadding(30,15,30,15);
+                            type[j].setPadding(30, 15, 30, 15);
                             typeFlag = j;
-                        }
-                        else {
+                        } else {
                             type[j].setBackgroundResource(R.drawable.tag_frame_unselected);
-                            type[j].setPadding(30,15,30,15);
+                            type[j].setPadding(30, 15, 30, 15);
                             type[j].setTextColor(Color.BLACK);
                         }
                     }
@@ -309,19 +308,19 @@ public class TagsActivity extends Activity{
                 if (collarFlag == -1 || sleeveFlag == -1 || tightFlag == -1 || hemFlag == -1
                         || farbricFlag == -1 || typeFlag == -1 || majorRed == -1 || majorGreen == -1
                         || majorBlue == -1 || secondaryRed == -1 || secondaryGreen == -1 || secondaryBlue == -1) {
-                    Toast.makeText(TagsActivity.this,"请完成所有选项",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TagsActivity.this, "请完成所有选项", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 url = baseUrl + collarFlag +
                         "/" + sleeveFlag +
-                        "/" + majorRed + "/" +majorGreen + "/" +majorBlue +
+                        "/" + majorRed + "/" + majorGreen + "/" + majorBlue +
                         "/" + secondaryRed + "/" + secondaryGreen + "/" + secondaryBlue +
                         "/" + tightFlag +
                         "/" + hemFlag +
                         getFabricFlag() +
                         getTypeFlag();
-                Log.d("MainActivity","url:"+url);
-                progressDialog = ProgressDialog.show(TagsActivity.this,"发送数据","正在发送数据");
+                Log.d("MainActivity", "url:" + url);
+                progressDialog = ProgressDialog.show(TagsActivity.this, "发送数据", "正在发送数据");
                 doPost(url);
             }
         });
@@ -343,28 +342,28 @@ public class TagsActivity extends Activity{
         });
     }
 
-    private String getFabricFlag(){
+    private String getFabricFlag() {
         StringBuilder builder = new StringBuilder();
-        for (int i=0;i<farbric.length;i++){
+        for (int i = 0; i < farbric.length; i++) {
             builder.append("/");
-            if (farbricFlag == i){
+            if (farbricFlag == i) {
                 builder.append("1");
-            }else builder.append("0");
+            } else builder.append("0");
         }
         return builder.toString();
     }
 
-    private String getTypeFlag(){
+    private String getTypeFlag() {
         StringBuilder builder = new StringBuilder();
-        for (int i=0;i<type.length;i++){
+        for (int i = 0; i < type.length; i++) {
             builder.append("/");
-            if (typeFlag == i)builder.append("1");
+            if (typeFlag == i) builder.append("1");
             else builder.append("0");
         }
         return builder.toString();
     }
 
-    private void doPost(String url){
+    private void doPost(String url) {
         Networks.getInstance().doPost(url).enqueue(new Callback() {
             @Override
             public void onFailure(final Call call, IOException e) {
@@ -372,35 +371,57 @@ public class TagsActivity extends Activity{
                     @Override
                     public void run() {
                         progressDialog.cancel();
-                        Toast.makeText(TagsActivity.this,"请求超时！",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TagsActivity.this, "请求超时！", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                if (response.code() == 200){
+                if (response.code() == 200) {
                     progressDialog.cancel();
                     String result = response.body().string();
-                    Log.d("MainActivity","result:"+result);
+                    JSONManager jsonManager = new JSONManager();
                     try {
-                        JSONArray array = new JSONArray(result);
-                        Log.d("MainActivity","result:"+array);
+                        lists = jsonManager.Analysis(result);
+                        Log.d("MainActivity", "lists:" + lists.size());
+                        if (lists.size() == 0) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(TagsActivity.this);
+                            builder.setTitle("温馨提示");
+                            builder.setMessage("没有找到合适的搭配，请重新选择标签");
+                            builder.setPositiveButton("返回", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    finish();
+                                }
+                            });
+                            builder.show();
+
+                        }else{
+
+                            Intent intent =new Intent(TagsActivity.this,ShowListActivity.class);
+                            intent.putExtra("cases",(Serializable)lists);
+                            System.out.println("Tags is "+ lists.size());
+                            startActivity(intent);
+                            finish();
+                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             progressDialog.cancel();
                         }
                     });
-                }else {
+                } else {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             progressDialog.cancel();
-                            Toast.makeText(TagsActivity.this,"访问出错！",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TagsActivity.this, "访问出错！", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -408,8 +429,8 @@ public class TagsActivity extends Activity{
         });
     }
 
-    private void initColorDialog(final boolean isMajor){
-        View view = LayoutInflater.from(TagsActivity.this).inflate(R.layout.item_color_picker,null,false);
+    private void initColorDialog(final boolean isMajor) {
+        View view = LayoutInflater.from(TagsActivity.this).inflate(R.layout.item_color_picker, null, false);
         colorPickerDialog = dialogBuilder.create();
         colorPickerDialog.setView(view);
         colorPicker = (ColorPicker) view.findViewById(R.id.colorPicker);
@@ -419,15 +440,15 @@ public class TagsActivity extends Activity{
             @Override
             public void onClick(View v) {
                 colorPickerDialog.dismiss();
-                if (isMajor){
-                    int []rgb = TranseToRGB(colorPicker.getColor());
-                    majorColor.setText("选择颜色："+rgb[0]+","+rgb[1]+","+rgb[2]);
+                if (isMajor) {
+                    int[] rgb = TranseToRGB(colorPicker.getColor());
+                    majorColor.setText("选择颜色：" + rgb[0] + "," + rgb[1] + "," + rgb[2]);
                     majorRed = rgb[0];
                     majorGreen = rgb[1];
                     majorBlue = rgb[2];
-                }else {
-                    int []rgb = TranseToRGB(colorPicker.getColor());
-                    secondaryColor.setText("选择颜色："+rgb[0]+","+rgb[1]+","+rgb[2]);
+                } else {
+                    int[] rgb = TranseToRGB(colorPicker.getColor());
+                    secondaryColor.setText("选择颜色：" + rgb[0] + "," + rgb[1] + "," + rgb[2]);
                     secondaryRed = rgb[0];
                     secondaryGreen = rgb[1];
                     secondaryBlue = rgb[2];
@@ -444,7 +465,7 @@ public class TagsActivity extends Activity{
         colorPickerDialog.show();
     }
 
-    private int[] TranseToRGB(int color){
+    private int[] TranseToRGB(int color) {
         int[] colors = new int[3];
         colors[0] = (color & 0xff0000) >> 16;//red
         colors[1] = (color & 0x00ff00) >> 8; //green
