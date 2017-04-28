@@ -1,5 +1,6 @@
 package com.example.jewel.clothingrec;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -55,6 +56,7 @@ public class JSONManager {
         JSONObject listItem = null;
         listItem = new JSONObject(jsonStr);
         suitState = listItem.getString("state");
+        Log.d("MainActivity","state:"+suitState);
         if (suitState.equals("true")) {
             jsonArray = listItem.getJSONArray("clothes");
             int jsonLen = jsonArray.length();
@@ -64,7 +66,7 @@ public class JSONManager {
                 HashMap<String, String> jsonItem = null;
                 jsonItem = new HashMap<String, String>();
                 jsonItem.put("name", clothing.getString("name"));
-                jsonItem.put("val", clothing.getString("val"));
+                jsonItem.put("val", clothing.getString("matchRate"));
                 jsonItem.put("url", clothing.getString("url"));
                 list.add(jsonItem);
             }
