@@ -87,7 +87,7 @@ public class NetImgAdapter extends BaseAdapter {
             if (v instanceof ImageView) {
                 ImageView iv = (ImageView) v;
                 final String content = dataList.get(position).get(fromArr[i]);
-                final String completeURl = new String("http://119.29.191.103:8080/match2.0/" +content);
+                final String completeURl = new String("http://119.29.191.103:8080/match/" +content);
                 bitmap = bitmapHashMap.get(completeURl);
                 if (bitmap != null) {
                     //已经加载了图片，直接显示

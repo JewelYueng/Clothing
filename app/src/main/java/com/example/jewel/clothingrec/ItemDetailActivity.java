@@ -58,7 +58,7 @@ public class ItemDetailActivity extends Activity {
         String per = bundle.getString("percent");
         String detail = bundle.getString("detail");
         String pic  =bundle.getString("picUrl");
-         picUrl = new String("http://119.29.191.103:8080/match2.0/"+pic);
+         picUrl = new String("http://119.29.191.103:8080/match/"+pic);
 //        int imageId = bundle.getInt("picId");
 
         detailView.setText(detail);
