@@ -78,7 +78,7 @@ public class TagsActivity extends Activity {
 
     ProgressDialog progressDialog;
 
-    private String baseUrl = "http://119.29.191.103:8080/match2.0/center.action?type=up&feature=";
+    private String baseUrl = "http://119.29.191.103:8080/match/center.action?type=up&feature=";
     private String url;
     List<HashMap<String, String>> lists;
 
