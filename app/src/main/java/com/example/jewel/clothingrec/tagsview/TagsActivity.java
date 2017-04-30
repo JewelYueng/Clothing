@@ -527,6 +527,10 @@ public class TagsActivity extends Activity {
         setChoose(sleeve[sleeveIndex]);
         sleeveFlag = sleeveIndex;
 
+        int hemIndex = 1;
+        setChoose(hem[hemIndex]);
+        hemFlag  = hemIndex;
+
 
     }
 

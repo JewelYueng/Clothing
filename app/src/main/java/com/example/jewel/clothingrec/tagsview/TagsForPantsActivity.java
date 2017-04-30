@@ -3,9 +3,13 @@ package com.example.jewel.clothingrec.tagsview;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Process;
 import android.support.annotation.Nullable;
@@ -13,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +32,7 @@ import com.larswerkman.holocolorpicker.SVBar;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -55,6 +61,9 @@ public class TagsForPantsActivity extends Activity {
     int typeFlag = -1;
 
     Button btnOk;
+    Button btnChoose;
+    Button btnAnalyse;
+
     AlertDialog colorPickerDialog;
     AlertDialog.Builder dialogBuilder;
     TextView color;
@@ -209,6 +218,29 @@ public class TagsForPantsActivity extends Activity {
                 doPost(url);
             }
         });
+
+        //选择图片按钮
+        btnChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                /* 开启Pictures画面Type设定为image */
+                intent.setType("image/*");
+                /* 使用Intent.ACTION_GET_CONTENT这个Action */
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                /* 取得相片后返回本画面 */
+                startActivityForResult(intent, 1);
+            }
+        });
+
+        //特征分析按钮
+        btnAnalyse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PictureAnalyse();
+            }
+        });
+
 
 //        色调
         color.setOnClickListener(new View.OnClickListener(){
@@ -411,8 +443,53 @@ public class TagsForPantsActivity extends Activity {
 //        确定按钮
         btnOk = (Button) findViewById(R.id.pants_ok);
 
+        //选择图片按钮
+        btnChoose =  (Button) findViewById(R.id.btn_choose);
+
+        //分析特征按钮
+        btnAnalyse = (Button) findViewById(R.id.btn_analyse);
+
 //        弹出框
         dialogBuilder = new AlertDialog.Builder(this);
+    }
+
+    private void setChoose(TextView view)
+    {
+        view.setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+        view.setTextColor(Color.WHITE);
+        view.setPadding(30, 15, 30, 15);
+    }
+
+    private void PictureAnalyse()
+    {
+
+        int downTypeIndex = 0;
+        setChoose(downType[downTypeIndex]);
+        downTypeFlag = downTypeIndex;
+
+        int lengthIndex = 0;
+        setChoose(length[lengthIndex]);
+        lengthFlag = downTypeIndex;
+
+
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            Uri uri = data.getData();
+            Log.e("uri", uri.toString());
+            ContentResolver cr = this.getContentResolver();
+            try {
+                Bitmap bitmap = BitmapFactory.decodeStream(cr.openInputStream(uri));
+                ImageView imageView = (ImageView) findViewById(R.id.up_cloth_pic);
+                /* 将Bitmap设定到ImageView */
+                imageView.setImageDrawable(null);
+                imageView.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                Log.e("Exception", e.getMessage(),e);
+            }
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 }
