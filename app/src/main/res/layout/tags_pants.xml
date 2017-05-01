@@ -11,6 +11,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/TagBlockStyle">
+                <ImageView
+                    android:id="@+id/test_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/pants"/>
+
+                <Button
+                    android:id="@+id/btn_choose"
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="选择下装图片" />
+
+                <Button
+                    android:id="@+id/btn_analyse"
+                    android:layout_width="128dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="特征识别" />
+
+            </LinearLayout>
+
             <!--下装种类-->
             <LinearLayout
                 style="@style/TagBlockStyle">
