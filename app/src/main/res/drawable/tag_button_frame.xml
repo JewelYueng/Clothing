@@ -5,13 +5,16 @@
             <padding
                 android:bottom="1dp"
                 android:top="1dp"
+                android:left="1dp"
                 android:right="1dp"/>
-            <solid android:color="@color/colorLightGray"/>
+            <solid android:color="#35261e"/>
+            <corners android:radius="10dp"></corners>
         </shape>
     </item>
     <item>
         <shape>
-            <solid android:color="@color/colorWhite"/>
+            <solid android:color="#35261e"/>
+            <corners android:radius="10dp"></corners>
         </shape>
     </item>
 </layer-list>
