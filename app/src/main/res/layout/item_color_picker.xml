@@ -2,17 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#efeee8">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="选择颜色"
-        android:textSize="@dimen/textSize_20"
-        android:gravity="center"
-        android:textColor="@color/colorWhite"
-        android:background="@drawable/tag_dialog_title"
-        android:padding="@dimen/space_14"/>
+
     <com.larswerkman.holocolorpicker.ColorPicker
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,10 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/svBar"/>
-    <com.larswerkman.holocolorpicker.OpacityBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/opacityBar"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,13 +26,19 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:id="@+id/btnOk"
+            android:textColor="@color/colorWhite"
             android:text="确定"
+            android:layout_margin="10dp"
+            android:textSize="20dp"
             android:background="@drawable/tag_button_frame"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="取消"
+            android:textColor="@color/colorWhite"
+            android:layout_margin="10dp"
+            android:textSize="20dp"
             android:id="@+id/btnCancel"
             android:background="@drawable/tag_button_frame"/>
     </LinearLayout>

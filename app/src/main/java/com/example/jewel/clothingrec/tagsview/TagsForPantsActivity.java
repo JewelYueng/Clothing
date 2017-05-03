@@ -307,7 +307,7 @@ public class TagsForPantsActivity extends Activity {
         colorPickerDialog = dialogBuilder.create();
         colorPickerDialog.setView(view);
         colorPicker = (ColorPicker) view.findViewById(R.id.colorPicker);
-        colorPicker.addOpacityBar((OpacityBar) view.findViewById(R.id.opacityBar));
+//        colorPicker.addOpacityBar((OpacityBar) view.findViewById(R.id.opacityBar));
         colorPicker.addSVBar((SVBar) view.findViewById(R.id.svBar));
         view.findViewById(R.id.btnOk).setOnClickListener(new View.OnClickListener(){
             @Override
