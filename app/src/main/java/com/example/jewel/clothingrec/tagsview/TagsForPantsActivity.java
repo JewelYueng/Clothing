@@ -60,6 +60,8 @@ public class TagsForPantsActivity extends Activity {
     int farbricFlag = -1;
     TextView[] type;
     int typeFlag = -1;
+    TextView[] sex;
+    int sexFlag = -1;
 
     Button btnOk;
     Button btnChoose;
@@ -74,8 +76,8 @@ public class TagsForPantsActivity extends Activity {
     ColorPicker colorPicker;
 
     ProgressDialog progressDialog;
-
-    private String baseUrl = "http://119.29.191.103:8080/match/center.action?type=down&feature=";
+// http://119.29.191.103:8080/match/center.action?type=down&feature=
+    private String baseUrl = "";
     private String url;
     List<HashMap<String, String>> lists;
 
@@ -112,6 +114,28 @@ public class TagsForPantsActivity extends Activity {
                             downType[j].setBackgroundResource(R.drawable.tag_frame_unselected);
                             downType[j].setPadding(30,15,30,15);
                             downType[j].setTextColor(Color.BLACK);
+                        }
+                    }
+                }
+            });
+        }
+        //性别
+        for(int i = 0; i < sex.length; i++){
+            final int pos = i;
+            sex[i].setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    for (int j = 0; j < sex.length; j++) {
+                        if (j == pos) {
+                            sex[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                            sex[j].setTextColor(Color.WHITE);
+                            sex[j].setPadding(30, 15, 30, 15);
+                            sexFlag = j;
+                            baseUrl = "http://119.29.191.103:8080/match/center.action?type=down&sex="+sexFlag+"&feature=";
+                        } else {
+                            sex[j].setBackgroundResource(R.drawable.tag_frame_unselected);
+                            sex[j].setPadding(30, 15, 30, 15);
+                            sex[j].setTextColor(Color.BLACK);
                         }
                     }
                 }
@@ -294,6 +318,9 @@ public class TagsForPantsActivity extends Activity {
                 red = rgb[0];
                 green = rgb[1];
                 blue = rgb[2];
+                color.setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                color.setTextColor(Color.WHITE);
+                color.setPadding(30,15,30,15);
             }
         });
 
@@ -340,7 +367,7 @@ public class TagsForPantsActivity extends Activity {
                         lists = jsonManager.Analysis(result);
                         Log.d("MainActivity", "lists:" + lists.size());
                         if (lists.size() == 0) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(TagsForPantsActivity.this);
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(TagsForPantsActivity.this);
                             builder.setTitle("温馨提示");
                             builder.setMessage("没有找到合适的搭配，请重新选择标签");
                             builder.setPositiveButton("返回", new DialogInterface.OnClickListener() {
@@ -349,7 +376,12 @@ public class TagsForPantsActivity extends Activity {
                                     finish();
                                 }
                             });
-                            builder.show();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    builder.show();
+                                }
+                            });
 
                         }else{
 
@@ -401,6 +433,9 @@ public class TagsForPantsActivity extends Activity {
     }
 
     private void initData() {
+        sex = new TextView[2];
+        sex[0] = (TextView) findViewById(R.id.pants_sex0);
+        sex[1] = (TextView) findViewById(R.id.pants_sex1);
 //        下装类型
         downType = new TextView[2];
         downType[0] = (TextView) findViewById(R.id.down_type01);

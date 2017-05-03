@@ -6,12 +6,14 @@
                 android:left="1dp"
                 android:right="1dp"
                 android:bottom="1dp"/>
-            <solid android:color="#EE5500"/>
+            <solid android:color="#35261e"/>
+            <corners android:radius="10dp"></corners>
         </shape>
     </item>
     <item>
         <shape>
-            <solid android:color="#EE5500"/>
+            <corners android:radius="10dp"></corners>
+            <solid android:color="#35261e"/>
         </shape>
     </item>
 </layer-list>

@@ -42,6 +42,7 @@ import org.opencv.imgproc.Imgproc;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -69,6 +70,8 @@ public class TagsActivity extends Activity {
     int farbricFlag = -1;
     TextView[] type;
     int typeFlag = -1;
+    TextView[] sex;
+    int sexFlag = -1;
 
     Button btnOk;
     Button btnChoose;
@@ -86,8 +89,8 @@ public class TagsActivity extends Activity {
     ColorPicker colorPicker;
 
     ProgressDialog progressDialog;
-
-    private String baseUrl = "http://119.29.191.103:8080/match/center.action?type=up&feature=";
+//http://119.29.191.103:8080/match/center.action?type=up&feature=
+    private String baseUrl = "";
     private String url;
     List<HashMap<String, String>> lists;
 
@@ -110,6 +113,10 @@ public class TagsActivity extends Activity {
     }
 
     private void initData() {
+        sex = new TextView[2];
+        sex[0] = (TextView) findViewById(R.id.sex0);
+        sex[1] = (TextView) findViewById(R.id.sex1);
+
         collar = new TextView[2];
         collar[0] = (TextView) findViewById(R.id.collar01);
         collar[1] = (TextView) findViewById(R.id.collar02);
@@ -187,6 +194,28 @@ public class TagsActivity extends Activity {
     }
 
     private void initListener() {
+        //性别
+        for(int i = 0; i < sex.length; i++){
+            final int pos = i;
+            sex[i].setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    for (int j = 0; j < sex.length; j++) {
+                        if (j == pos) {
+                            sex[j].setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                            sex[j].setTextColor(Color.WHITE);
+                            sex[j].setPadding(30, 15, 30, 15);
+                            sexFlag = j;
+                            baseUrl = "http://119.29.191.103:8080/match/center.action?type=up&sex="+sexFlag+"&feature=";
+                        } else {
+                            sex[j].setBackgroundResource(R.drawable.tag_frame_unselected);
+                            sex[j].setPadding(30, 15, 30, 15);
+                            sex[j].setTextColor(Color.BLACK);
+                        }
+                    }
+                }
+            });
+        }
 
         //领子
         for (int i = 0; i < collar.length; i++) {
@@ -433,7 +462,7 @@ public class TagsActivity extends Activity {
                         lists = jsonManager.Analysis(result);
                         Log.d("MainActivity", "lists:" + lists.size());
                         if (lists.size() == 0) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(TagsActivity.this);
+                            final AlertDialog.Builder builder = new AlertDialog.Builder(TagsActivity.this);
                             builder.setTitle("温馨提示");
                             builder.setMessage("没有找到合适的搭配，请重新选择标签");
                             builder.setPositiveButton("返回", new DialogInterface.OnClickListener() {
@@ -442,7 +471,13 @@ public class TagsActivity extends Activity {
                                     finish();
                                 }
                             });
-                            builder.show();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    builder.show();
+                                }
+                            });
+
 
                         }else{
 
@@ -468,6 +503,7 @@ public class TagsActivity extends Activity {
                         @Override
                         public void run() {
                             progressDialog.cancel();
+
                             Toast.makeText(TagsActivity.this, "访问出错！", Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -490,12 +526,18 @@ public class TagsActivity extends Activity {
                 if (isMajor) {
                     int[] rgb = TranseToRGB(colorPicker.getColor());
                     majorColor.setText("选择颜色：" + rgb[0] + "," + rgb[1] + "," + rgb[2]);
+                    majorColor.setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                    majorColor.setTextColor(Color.WHITE);
+                    majorColor.setPadding(30,15,30,15);
                     majorRed = rgb[0];
                     majorGreen = rgb[1];
                     majorBlue = rgb[2];
                 } else {
                     int[] rgb = TranseToRGB(colorPicker.getColor());
                     secondaryColor.setText("选择颜色：" + rgb[0] + "," + rgb[1] + "," + rgb[2]);
+                    secondaryColor.setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                    secondaryColor.setTextColor(Color.WHITE);
+                    secondaryColor.setPadding(30,15,30,15);
                     secondaryRed = rgb[0];
                     secondaryGreen = rgb[1];
                     secondaryBlue = rgb[2];
