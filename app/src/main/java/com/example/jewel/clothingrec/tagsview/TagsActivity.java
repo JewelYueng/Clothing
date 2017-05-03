@@ -515,12 +515,18 @@ public class TagsActivity extends Activity {
                 if (isMajor) {
                     int[] rgb = TranseToRGB(colorPicker.getColor());
                     majorColor.setText("选择颜色：" + rgb[0] + "," + rgb[1] + "," + rgb[2]);
+                    majorColor.setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                    majorColor.setTextColor(Color.WHITE);
+                    majorColor.setPadding(30,15,30,15);
                     majorRed = rgb[0];
                     majorGreen = rgb[1];
                     majorBlue = rgb[2];
                 } else {
                     int[] rgb = TranseToRGB(colorPicker.getColor());
                     secondaryColor.setText("选择颜色：" + rgb[0] + "," + rgb[1] + "," + rgb[2]);
+                    secondaryColor.setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                    secondaryColor.setTextColor(Color.WHITE);
+                    secondaryColor.setPadding(30,15,30,15);
                     secondaryRed = rgb[0];
                     secondaryGreen = rgb[1];
                     secondaryBlue = rgb[2];

@@ -6,38 +6,49 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite">
+        android:background="#EEECDF">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
-                style="@style/TagBlockStyle">
+                style="@style/TagBlockStyle"
+                android:orientation="horizontal"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp">
                 <ImageView
                     android:id="@+id/test_pic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/pants"/>
+                    android:src="@drawable/down"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+                    <Button
+                        android:id="@+id/btn_choose"
+                        android:layout_width="128dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/tag_frame_selected"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginTop="10dp"
+                        android:text="选择下装图片" />
 
-                <Button
-                    android:id="@+id/btn_choose"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_vertical"
-                    android:text="选择下装图片" />
-
-                <Button
-                    android:id="@+id/btn_analyse"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_vertical"
-                    android:text="特征识别" />
-
+                    <Button
+                        android:id="@+id/btn_analyse"
+                        android:layout_width="128dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@drawable/tag_frame_selected"
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginTop="10dp"
+                        android:text="特征识别" />
+                </LinearLayout>
             </LinearLayout>
 
             <!--男女装-->
@@ -242,12 +253,23 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/pants_ok"
-                android:gravity="center"
-                android:text="确定"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tag_frame_selected"
+                    android:id="@+id/pants_ok"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20dp"
+                    android:text="确定"/>
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>

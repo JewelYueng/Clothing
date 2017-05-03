@@ -283,6 +283,9 @@ public class TagsForPantsActivity extends Activity {
                 red = rgb[0];
                 green = rgb[1];
                 blue = rgb[2];
+                color.setBackground(getResources().getDrawable(R.drawable.tag_frame_selected));
+                color.setTextColor(Color.WHITE);
+                color.setPadding(30,15,30,15);
             }
         });
 
