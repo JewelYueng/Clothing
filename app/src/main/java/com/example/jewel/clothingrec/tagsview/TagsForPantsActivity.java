@@ -32,6 +32,8 @@ import com.larswerkman.holocolorpicker.SVBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -503,6 +505,61 @@ public class TagsForPantsActivity extends Activity {
 
         if(thumbnail == null)
             return;
+
+        Mat rgbMat = new Mat();
+
+        Utils.bitmapToMat(thumbnail, rgbMat);//convert original bitmap to Mat, R G B.
+
+
+        /**********主要颜色识别***********************/
+        int range = 10;
+        int size = 255/range + (255%range==0?0:1);
+        int[][][] bucket = new int[size][size][size];
+
+        for(int i=0;i<size;i++)
+            for(int j=0;j<size;j++)
+                for(int k=0;k<size;k++) {
+                    bucket[i][j][k] = 0;
+                }
+
+
+
+        for(int i=0; i<rgbMat.rows();i++)
+            for(int j=0; j<rgbMat.cols(); j++)
+            {
+                double[] pixel = rgbMat.get(i,j);//返回的是rgba四个通道的值。
+                int r = (int) pixel[0];
+                int g = (int) pixel[1];
+                int b = (int) pixel[2];
+
+                ++bucket[r/range][g/range][b/range];
+
+            }
+
+
+        int max = bucket[0][0][0];
+
+        int max_i=0, max_j = 0, max_k = 0;
+
+        for(int i=0;i<size;i++)
+            for(int j=0;j<size;j++)
+                for(int k=0;k<size;k++) {
+                    if (bucket[i][j][k] > max) {
+                        max = bucket[i][j][k];
+                        max_i = i;
+                        max_j = j;
+                        max_k = k;
+                    }
+                }
+
+        int max_r = (max_i * range) + range /2;
+        int max_g = (max_j * range) + range /2;
+        int max_b = (max_k * range) + range /2;
+
+        red = max_r;
+        blue = max_b;
+        green = max_g;
+        color.setText("选择颜色：" + max_r + "," +max_g + "," + max_b);
 
         int downTypeIndex = 0;
         setChoose(downType[downTypeIndex]);
