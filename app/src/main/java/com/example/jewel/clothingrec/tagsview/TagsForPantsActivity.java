@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Process;
@@ -77,6 +78,8 @@ public class TagsForPantsActivity extends Activity {
     private String baseUrl = "http://119.29.191.103:8080/match/center.action?type=down&feature=";
     private String url;
     List<HashMap<String, String>> lists;
+
+    private Bitmap thumbnail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -463,6 +466,9 @@ public class TagsForPantsActivity extends Activity {
     private void PictureAnalyse()
     {
 
+        if(thumbnail == null)
+            return;
+
         int downTypeIndex = 0;
         setChoose(downType[downTypeIndex]);
         downTypeFlag = downTypeIndex;
@@ -480,10 +486,16 @@ public class TagsForPantsActivity extends Activity {
             ContentResolver cr = this.getContentResolver();
             try {
                 Bitmap bitmap = BitmapFactory.decodeStream(cr.openInputStream(uri));
-                ImageView imageView = (ImageView) findViewById(R.id.up_cloth_pic);
-                /* 将Bitmap设定到ImageView */
-                imageView.setImageDrawable(null);
-                imageView.setImageBitmap(bitmap);
+                int sourceWidth = bitmap.getWidth();
+                int sourceHeight = bitmap.getHeight();
+                int bigger = sourceHeight >sourceWidth ?sourceHeight : sourceWidth;
+                double ratio = bigger > 400 ? 400/(double)bigger : 1;
+
+                thumbnail = ThumbnailUtils.extractThumbnail(bitmap, (int)(sourceWidth*ratio), (int)(sourceHeight*ratio));
+
+                ImageView imageView = (ImageView) findViewById(R.id.pants_pic);
+                /* 将thumbnail设定到ImageView */
+                imageView.setImageBitmap(thumbnail);
             } catch (FileNotFoundException e) {
                 Log.e("Exception", e.getMessage(),e);
             }

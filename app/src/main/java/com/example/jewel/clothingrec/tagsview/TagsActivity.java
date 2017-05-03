@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,6 +32,12 @@ import com.larswerkman.holocolorpicker.SVBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,6 +48,8 @@ import java.util.List;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Aria on 2017/4/20.
@@ -81,6 +90,8 @@ public class TagsActivity extends Activity {
     private String baseUrl = "http://119.29.191.103:8080/match/center.action?type=up&feature=";
     private String url;
     List<HashMap<String, String>> lists;
+
+    private Bitmap thumbnail;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -518,6 +529,69 @@ public class TagsActivity extends Activity {
 
     private void PictureAnalyse()
     {
+        if(thumbnail == null)
+            return;
+
+
+        Mat rgbMat = new Mat();
+
+        Utils.bitmapToMat(thumbnail, rgbMat);//convert original bitmap to Mat, R G B.
+
+
+        /**********主要颜色识别***********************/
+        int range = 10;
+        int size = 255/range + (255%range==0?0:1);
+        int[][][] bucket = new int[size][size][size];
+
+        for(int i=0;i<size;i++)
+            for(int j=0;j<size;j++)
+                for(int k=0;k<size;k++) {
+                    bucket[i][j][k] = 0;
+                }
+
+
+
+        for(int i=0; i<rgbMat.rows();i++)
+            for(int j=0; j<rgbMat.cols(); j++)
+            {
+                double[] pixel = rgbMat.get(i,j);//返回的是rgba四个通道的值。
+                int r = (int) pixel[0];
+                int g = (int) pixel[1];
+                int b = (int) pixel[2];
+
+                ++bucket[r/range][g/range][b/range];
+
+            }
+
+
+        int max = bucket[0][0][0];
+
+        int max_i=0, max_j = 0, max_k = 0;
+
+        for(int i=0;i<size;i++)
+            for(int j=0;j<size;j++)
+                for(int k=0;k<size;k++) {
+                    if (bucket[i][j][k] > max) {
+                        max = bucket[i][j][k];
+                        max_i = i;
+                        max_j = j;
+                        max_k = k;
+                    }
+                }
+
+        int max_r = (max_i * range) + range /2;
+        int max_g = (max_j * range) + range /2;
+        int max_b = (max_k * range) + range /2;
+
+        majorRed = max_r;
+        majorBlue = max_b;
+        majorGreen = max_g;
+        majorColor.setText("选择颜色：" + max_r + "," +max_g + "," + max_b);
+
+        /**********主要颜色识别完毕***********************/
+
+
+
 
         int collarIndex = 0;
         setChoose(collar[collarIndex]);
@@ -531,25 +605,67 @@ public class TagsActivity extends Activity {
         setChoose(hem[hemIndex]);
         hemFlag  = hemIndex;
 
-
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             Uri uri = data.getData();
-            Log.e("uri", uri.toString());
             ContentResolver cr = this.getContentResolver();
             try {
+
                 Bitmap bitmap = BitmapFactory.decodeStream(cr.openInputStream(uri));
+                int sourceWidth = bitmap.getWidth();
+                int sourceHeight = bitmap.getHeight();
+                int bigger = sourceHeight >sourceWidth ?sourceHeight : sourceWidth;
+                double ratio = bigger > 400 ? 400/(double)bigger : 1;
+
+                thumbnail = ThumbnailUtils.extractThumbnail(bitmap, (int)(sourceWidth*ratio), (int)(sourceHeight*ratio));
+
                 ImageView imageView = (ImageView) findViewById(R.id.up_cloth_pic);
-                /* 将Bitmap设定到ImageView */
-                imageView.setImageDrawable(null);
-                imageView.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
-                Log.e("Exception", e.getMessage(),e);
+    /*
+                Mat rgbMat = new Mat();
+                Mat grayMat = new Mat();
+
+                Bitmap grayBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.RGB_565);
+                Utils.bitmapToMat(bitmap, rgbMat);//convert original bitmap to Mat, R G B.
+                Imgproc.cvtColor(rgbMat, grayMat, Imgproc.COLOR_RGB2GRAY);//rgbMat to gray grayMat
+                Utils.matToBitmap(grayMat, grayBitmap); //convert mat to bitmap
+    */
+                /* 将thumbnail设定到ImageView */
+                imageView.setImageBitmap(thumbnail);
+
+            }catch(Exception ex) {
+
+                Log.e(TAG, "onActivityResult: fail when open flie!");
             }
+
 
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    public void onResume()
+    {
+        super.onResume();
+        if (!OpenCVLoader.initDebug()) {
+            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, mLoaderCallback);
+        }
+    }
+
+    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            // TODO Auto-generated method stub
+            switch (status){
+                case BaseLoaderCallback.SUCCESS:
+                    Log.i(TAG, "成功加载");
+                    break;
+                default:
+                    super.onManagerConnected(status);
+                    Log.i(TAG, "加载失败");
+                    break;
+            }
+        }
+    };
 }
