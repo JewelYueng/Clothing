@@ -2,6 +2,24 @@
 <items version="2" >
 
     <item
+        is-multidex="true"
+        jar="G:\projects\myJavaProjects\Clothing\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="G:\projects\myJavaProjects\Clothing\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_ae31554f545c0824b0aceec4fa5fc37d49789037\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\projects\myJavaProjects\Clothing\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b788e3593477739067d04dbe49610fb40bc80f9b">
+        <dex dex="G:\projects\myJavaProjects\Clothing\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_40961acf8c34033356bc81ee5f0d9b9d3ca25a67\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="G:\projects\myJavaProjects\Clothing\openCVLibrary320\build\intermediates\bundles\default\classes.jar"
         jumboMode="false"
